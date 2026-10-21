@@ -24,39 +24,40 @@ public class Clase_19102026 {
         2 memoria -> tackoverflow 
         */
         
-        int acum = 0;
-        int[][] matriz = new int [2][2];
-        matriz[0][0]= 3;
-        matriz[0][1]= 3;
-        matriz[1][0]= 2;
-        matriz[1][1]= 2;
  
-        for (int i = 0; i < matriz.length; i++) {// filas 
-            for (int j = 0; j < matriz[0].length; j++) {// columnas 
-                acum+= matriz[i][j];
-            }// fin del for 
-        }// fin del for 
+        int [][] matrizClase =  new int[2][2];
+        matrizClase[0][0] = 9;
+        matrizClase[0][1] = 11;
+        matrizClase[1][0] = 30;
+        matrizClase[1][1] = 50;
+                
+        int acum = sumarMatriz(matrizClase, 0,0);
+        System.out.println("El resultado es: "+ acum);
         
-        System.out.println("El resultado es: "+acum);
-        
-//        int res = sumaMatriz(..);
-//         System.out.println(res);
-        
+//        for (int i = 0; i < matrizClase.length; i++) {
+//            for (int j = 0; j < matrizClase[0].length; j++) {
+//                acum+=matrizClase[i][j];
+//            }
+//        }
     }
+   
+
     
-    
-    
-    public static void sumaMatriz(int [][] matriz, int i, int j){
+    public static int sumarMatriz(int[][] matrizClase, int i, int j ){
         /*
-        1 como aumentar i, j 
-        2 como reiniciar j 
-        3 como enviar el resultado al main
+        1 Como aumentar i, j
+        2 como reiniciar j
+        3 Como enviar el resultado al main
         */
-        if(i==matriz.length && j== matriz.length){// caso base 
-        }else{// caso recursivo 
-            return sumaMatriz(matriz); 
+        
+        if(i==matrizClase.length){
+            return 0;
         }
-    } 
+        if(j == matrizClase[i].length){
+            return sumarMatriz(matrizClase, i + 1, 0);
+        }
+        return matrizClase[i][j] + sumarMatriz(matrizClase, i, j +1);
+    }
     
     public static int Factorial (int num){
         if(num==0){ // caso base 
