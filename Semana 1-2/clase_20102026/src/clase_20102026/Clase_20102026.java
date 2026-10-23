@@ -4,6 +4,8 @@
  */
 package clase_20102026;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author claudiacortes
@@ -14,6 +16,7 @@ public class Clase_20102026 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        
         /*
             -> P1: progra Estructurada 
                     => estructuras 
@@ -33,12 +36,23 @@ public class Clase_20102026 {
         String nombre2;
         char letra ;
         
-        Persona claudia;
+        
+        // Crear un objeto 
+                        // new llamadoDelConstructor
+        Persona claudia = new Persona("Claudia","1234","Juan","Maria","tegus","09/09/xxxx");
+        Persona lucia = new Persona("Claudia");
+         Persona pedro = new Persona("Pedro","1234","Juan","Maria","tegus","09/09/xxxx");
+        
+         
+        claudia=pedro;
+        
+        claudia.nombre = "Jose";
+        
+        System.out.println(claudia.nombre);
+        System.out.println(pedro.nombre);
         
         
         
-        
-
     }
     
     
