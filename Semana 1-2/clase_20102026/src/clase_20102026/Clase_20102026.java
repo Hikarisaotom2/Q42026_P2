@@ -41,9 +41,8 @@ public class Clase_20102026 {
                         // new llamadoDelConstructor
         Persona claudia = new Persona("Claudia","1234","Juan","Maria","tegus","09/09/xxxx");
         Persona lucia = new Persona("Claudia");
-         Persona pedro = new Persona("Pedro","1234","Juan","Maria","tegus","09/09/xxxx");
-        
-         
+        Persona pedro = new Persona("Pedro","1234","Juan","Maria","tegus","09/09/xxxx");
+    
         claudia=pedro;
         
         claudia.nombre = "Jose";

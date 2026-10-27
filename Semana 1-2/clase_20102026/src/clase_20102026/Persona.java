@@ -68,7 +68,8 @@ public class Persona {
     //Metodos 
     
     //Sobrecarga 
-    public void inscribir() {
+    
+    public void inscribir(int pos) {
 
     }
    
