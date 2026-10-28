@@ -19,10 +19,10 @@ public class CuentaBancaria {
         -> private:  visisble unicamente para la clase 
         -> pendiente..... 
     */
-    private int numeroCuenta;
+    private int numeroCuenta; // valor de solo lectura 
     private double saldo;
     private String nombreProp;
-    private String clave;
+    private String clave; // valor de solo escritura 
 
     public CuentaBancaria(int numeroCuenta, double saldo, String nombreProp, String clave) {
         this.numeroCuenta = numeroCuenta;
@@ -57,10 +57,19 @@ public class CuentaBancaria {
     public void setClave(String clave) {
         this.clave = clave;
     }
-    
-    
-    
 
-  
+    
+    /*
+    REGLAS
+        1 no le podemos cambiar el nombre 
+        2 no le podemos modificar los paramaetros 
+        2 no le podemos modificar el tipo de dato de retorno 
+    */
+    @Override
+    public String toString() {
+        return "Detalle de cuenta bancaria: \n ->Num Cuenta: "+this.numeroCuenta+ "\n ->Propietario: "+this.nombreProp+ "\n ->Saldo: "+this.saldo;
+                
+    }
+    
   
 }
