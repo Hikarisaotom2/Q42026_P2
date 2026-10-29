@@ -52,12 +52,40 @@ public class CuentaBancaria {
         this.nombreProp = nombreProp;
     }
     
+    
 
     // modificar el valor 
     public void setClave(String clave) {
         this.clave = clave;
     }
 
+    
+    // Metodos para simular acciones del ATM 
+    
+    public boolean retirar(String clave, double monto){
+        if(this.clave.equals(clave)){
+           // retirar
+           if(this.saldo-monto>=0){
+//               this.saldo = this.saldo-monto;
+               setSaldo(this.saldo-monto);
+               System.out.println("Retiro exitoso.....");
+               return true;
+           }else{
+               System.out.println("No tiene dinero :(");
+               return false;
+           }
+        }else{
+        // no se puede retirar 
+            System.out.println("Clave incorrecta no puede realizar esta transaccion....");
+            return false;
+        }
+        
+    }
+    
+    public void depositar(double monto){
+        setSaldo(this.saldo+monto);
+        System.out.println("Deposito realizado con exito :)");
+    }
     
     /*
     REGLAS
