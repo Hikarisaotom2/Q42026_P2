@@ -92,16 +92,19 @@ public class Clase_26102026 {
 
                 case 3 -> {
                         
-//                     CuentaBancaria cuentaA = buscarCuenta(cuentas);
-//                     CuentaBancaria cuentaB = buscarCuenta(cuentas);
-                    listarCuentas(cuentas);
-                    System.out.println("Ingrese la pos de la cuenta A");
-                    int posA = entrada.nextInt();
-                    System.out.println("Ingrese la pos de la cuenta B");
-                    int posB = entrada.nextInt();
+                     CuentaBancaria cuentaA = BuscarCuenta(cuentas);
+                     CuentaBancaria cuentaB = BuscarCuenta(cuentas);
+//                    listarCuentas(cuentas);
+//                    System.out.println("Ingrese la pos de la cuenta A");
+//                    int posA = entrada.nextInt();
+//                    System.out.println("Ingrese la pos de la cuenta B");
+//                    int posB = entrada.nextInt();
+//
+//                    CuentaBancaria cuentaA = cuentas.get(posA);
+//                    CuentaBancaria cuentaB = cuentas.get(posB);
+                    if(cuentaA!=null && cuentaB!=null){
 
-                    CuentaBancaria cuentaA = cuentas.get(posA);
-                    CuentaBancaria cuentaB = cuentas.get(posB);
+                    
                     System.out.println("Ingrese la clave de la cuenta A");
                     entrada.nextLine();
                     String clave = entrada.nextLine();
@@ -109,6 +112,7 @@ public class Clase_26102026 {
                     double monto = entrada.nextDouble();
 
                     boolean transaccionExitosa = cuentaA.retirar(clave, monto);
+                    
                     if (transaccionExitosa) {
                         cuentaB.depositar(monto);
                     } else {
@@ -116,6 +120,9 @@ public class Clase_26102026 {
                     }
                     String trans= "Transaccion: Deposito entre  Cuenta \n informacion: cuenta A "+cuentaA.getNumeroCuenta()+ "Cuenta B"+cuentaB.getNumeroCuenta()+"\n fecha: 27/10/2026";
                     historial.add(trans);
+                    }else{
+                        System.out.println("No se pede realizar la transaccion! ");
+                    }
 
                 }
                 
@@ -202,6 +209,30 @@ public class Clase_26102026 {
         CuentaBancaria nuevaCuenta = new CuentaBancaria(numeroCuenta, saldo, prop, clave);
 
         return nuevaCuenta;
+    }
+    
+    public static CuentaBancaria BuscarCuenta(ArrayList<CuentaBancaria> cuentas) {
+        Scanner leer = new Scanner(System.in);
+        if (cuentas.isEmpty()) {
+            System.out.println("No existen cuentas a buscar.");
+            return null;
+        }
+        
+        System.out.println("Ingrese el numero de cuenta a buscar: ");
+        int NumCuent = leer.nextInt();
+        
+        for (int i = 0; i < cuentas.size(); i++) {
+            if (NumCuent == cuentas.get(i).getNumeroCuenta()) {
+                System.out.println("Cuenta encontrada!!");
+                System.out.println("=".repeat(15) + "\n" + cuentas.get(i) + "\n" + "=".repeat(15));
+                return cuentas.get(i);
+            }// fin del if
+            
+        }// fin del for 
+       
+        System.out.println("La cuenta no existe");
+        return null;
+
     }
 
 }
