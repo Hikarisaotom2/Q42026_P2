@@ -45,6 +45,7 @@ public class Clase_29102026 {
             5) asistencia 
             6) matricular
             7) listar detalles de clase 
+            8) info de alumnos 
         */
         while(true){
             Scanner entrada = new Scanner(System.in);
@@ -96,6 +97,9 @@ public class Clase_29102026 {
        int posClase = entrada.nextInt();
        // seleccionemos al estudiante que vamos a matricular 
        listarAlumnos(alumnos);
+       
+       // NOTA: COMPLETAR CON UN SUB MENU PARA DECIDIR QUE ATRIBUTO QUEREMOS MODIFICAR 
+       
        System.out.println("Ingrese la pos del alumno");
        int posAlumno = entrada.nextInt();
        

@@ -60,6 +60,14 @@ public class Clase {
 
     @Override
     public String toString() {
+        
+        /*
+        nombre seccion 
+        alumnos: 
+            0 juan 
+            1 pedro 
+            2 mario......
+        */
         return "Clase{" + "nombre=" + nombre + ", seccion=" + seccion + " \n, alumnos=" + alumnos + '}';
     }
     
