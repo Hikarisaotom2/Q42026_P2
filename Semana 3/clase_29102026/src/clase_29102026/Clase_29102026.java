@@ -4,6 +4,9 @@
  */
 package clase_29102026;
 
+import java.util.ArrayList;
+import java.util.Scanner;
+
 /**
  *
  * @author claudiacortes
@@ -14,7 +17,26 @@ public class Clase_29102026 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        /*
+        
+        ArrayList<Clase> clases = new ArrayList();
+        ArrayList<Alumno> alumnos= new ArrayList();;
+        
+        Alumno Carlos = new Alumno("Carlos Varela", 123,"Ing Sistemas/ Datos", "carlos2unitec.edu");
+        Alumno Cesar = new Alumno("Cesar Mendoza", 124,"Ing Sistemas/ Datos", "cesar@unitec.edu");
+        Alumno Jonathan  = new Alumno("Jonathan Rojas", 125,"Ing Sistemas/ Datos", "Jonathan@unitec.edu");
+        Alumno Manuel = new Alumno("Manuel Rodriguez", 126,"Ing Sistemas/ Datos", "Manuel@unitec.edu");
+        alumnos.add(Carlos);
+        alumnos.add(Cesar);
+        alumnos.add(Jonathan);
+        
+        Clase progra1 = new Clase("Programacion 1", "CCC104");
+        Clase progra2 = new Clase("Programacion 2", "CCC105");
+        Clase progra3 = new Clase("Programacion 3", "CCC106");
+        
+        clases.add(progra1);
+        clases.add(progra2);
+        clases.add(progra3);
+           /*
             sistema de matricula de unitec 
             1)crear clases en el sistema 
             2 ) crear alumnos 
@@ -23,9 +45,97 @@ public class Clase_29102026 {
             5) asistencia 
             6) matricular
             7) listar detalles de clase 
-     
-
         */
+        while(true){
+            Scanner entrada = new Scanner(System.in);
+            System.out.println("Ingrese la opcion");
+            int op = entrada.nextInt();
+            switch (op) {
+                case 3: // modificar 
+                    modificarAlumno(alumnos);
+                    break;
+                case 6:// Matricula
+                    matricular(clases,alumnos);
+                    break;
+                case 7:
+                    listarClases(clases);
+                    break;
+            }
+            
+        }
+     
     }
+    
+    public static void modificarAlumno(ArrayList<Alumno> alumnos){
+        Scanner entrada = new Scanner(System.in);
+       listarAlumnos(alumnos);
+       System.out.println("Ingrese la pos del alumno");
+       int posAlumno = entrada.nextInt();
+       Alumno alumnoModificar = alumnos.get(posAlumno);
+       
+       
+       // NOTA: por ahora solo modificaremos el nombre, luego se agregaran el resto de funciones... 
+        System.out.println("Modiifcando nombre...");
+        System.out.println("Ingrese el nuevo nombre");
+        entrada.nextLine();
+        String nuevoNombre = entrada.nextLine();
+        
+        
+        // modificando nombre...
+        alumnoModificar.setNombre(nuevoNombre);
+        System.out.println("Nombre actualizado con exito!");
+       
+    }
+    
+    
+   public static void matricular(ArrayList<Clase> clases, ArrayList<Alumno> alumnos){
+       Scanner entrada = new Scanner(System.in);
+       // selecciones la clase en la que vamos a matriclular 
+       listarClases(clases);
+       System.out.println("Ingrese la pos de la clase");
+       int posClase = entrada.nextInt();
+       // seleccionemos al estudiante que vamos a matricular 
+       listarAlumnos(alumnos);
+       System.out.println("Ingrese la pos del alumno");
+       int posAlumno = entrada.nextInt();
+       
+       Clase claseMatricular = clases.get(posClase);
+       Alumno alumnoMatricular = alumnos.get(posAlumno);
+       
+       claseMatricular.matricular(alumnoMatricular);
+   }
+   
+   
+   public static void listarClases(ArrayList<Clase> clases){
+       System.out.println("CLASES ");
+       for (int i = 0; i < clases.size();i++) {
+           System.out.println(i+") "+ clases.get(i));
+       }
+       System.out.println("");
+   }
+   
+   public static void listarAlumnos(ArrayList<Alumno> alumnos){
+       System.out.println("ALUMNOS");
+        for (int i = 0; i < alumnos.size();i++) {
+           System.out.println(i+") "+ alumnos.get(i));
+       } 
+        System.out.println("");
+   }
+    
+//    
+//    public static void crearClases() {
+//        if (totalClases >= listaClases.length) {
+//            System.out.println("Limite de clases alcanzado.");
+//            return;
+//        }
+//        System.out.print("Ingrese codigo de la clase: ");
+//        String codigo = scanner.nextLine();
+//        System.out.print("Ingrese nombre de la clase: ");
+//        String nombre = scanner.nextLine();
+//        
+//        listaClases[totalClases] = new ClaseUnitec(codigo, nombre);
+//        totalClases++;
+//        System.out.println("Clase creada exitosamente.");
+//    }
     
 }
