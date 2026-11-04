@@ -55,6 +55,9 @@ public class Clase_29102026 {
                 case 3: // modificar 
                     modificarAlumno(alumnos);
                     break;
+                case 5: // asistencia 
+                    asistencia(clases);
+                    break;
                 case 6:// Matricula
                     matricular(clases,alumnos);
                     break;
@@ -66,6 +69,28 @@ public class Clase_29102026 {
         }
      
     }
+    
+    public static void asistencia(ArrayList<Clase> clases){
+        System.out.println("Asistencia");
+        Scanner entrada = new Scanner(System.in);
+        System.out.println("Ingrese la pos de la clase ");
+        int posClase = entrada.nextInt();
+        Clase claseAsistencia = clases.get(posClase);
+        
+        for (int i = 0; i < claseAsistencia.getAlumnos().size(); i++) {
+            Alumno alumnoActual = claseAsistencia.getAlumnos().get(i);
+            System.out.println(alumnoActual.getNombre()+" Presente? 1 si  2 no");
+            int presente = entrada.nextInt();
+            
+            if(presente==1){// presente 
+                // nada
+            }else{ // no presente, aumentar inasistencias +1
+                alumnoActual.aumentarInasistencia();
+                System.out.println("Inasistencia registrada :(");
+            }
+        }// fin del for 
+        
+    }// fin del metodo 
     
     public static void modificarAlumno(ArrayList<Alumno> alumnos){
         Scanner entrada = new Scanner(System.in);
@@ -105,6 +130,11 @@ public class Clase_29102026 {
        
        Clase claseMatricular = clases.get(posClase);
        Alumno alumnoMatricular = alumnos.get(posAlumno);
+       
+       // Por cada vez que instanciamos se crea un objeto completamente buevo, sin importar el contenido...
+//       Alumno nuevoAlumno = new Alumno("juan", 123, "hola", "hola"); // 0801 ESTO NO FUNCIONARIA PARA LA ACTUALIZACION AUTOMATICA
+//       claseMatricular.matricular(nuevoAlumno);
+       
        
        claseMatricular.matricular(alumnoMatricular);
    }

@@ -66,6 +66,10 @@ public class Alumno {
     public void setAsistencias(int asistencias) {
         this.asistencias = asistencias;
     }
+    
+    public void aumentarInasistencia(){
+        this.asistencias+=1;
+    }
 
     @Override
     public String toString() {
