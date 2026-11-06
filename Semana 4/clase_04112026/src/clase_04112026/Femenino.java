@@ -19,8 +19,11 @@ public class Femenino extends Paciente{
   
     public Femenino (String nombre, int edad, double peso, double estatura, String tipoSangre, boolean embarazo, String ultPeridoMenstrual){
         super( nombre,  edad,  peso,  estatura,  tipoSangre);
+                
         this.embarazo = embarazo; 
         this.ultPeridoMenstrual = ultPeridoMenstrual;
+        
+        
         
     }
 

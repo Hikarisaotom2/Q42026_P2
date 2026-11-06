@@ -8,7 +8,7 @@ package clase_04112026;
  *
  * @author claudiacortes
  */
-public class Masculino extends Paciente{
+public class Masculino extends  Paciente{
     private String ultimaRevProstata;
 
     public Masculino(String ultimaRevProstata, String nombre, int edad, double peso, double estatura, String tipoSangre) {
