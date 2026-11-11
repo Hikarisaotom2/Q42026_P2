@@ -26,13 +26,6 @@ public class JefeCarrera extends Docente{
     */
     @Override
     public void generarBoletaPago(){
-        /*
-         -> sueldo base 
-               -> aplican a deducciones: 
-                    -> IHSS, RAP, ISR 
-               -> bonificaciones 
-                -> sueldo neto: (sueldo base - total Deducciones) +bonos 
-        */
         double ISR = this.sueldoBase*0.15;
         double deducciones =  600 + 600 +ISR;
         double sueldoNeto = (this.sueldoBase-deducciones)+this.bono;

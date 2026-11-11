@@ -16,4 +16,19 @@ public class Permanente extends Docente{
         this.sueldoMensual = sueldoMensual;
     }
     
+        @Override
+    public void generarBoletaPago(){
+        double ISR = this.sueldoMensual*0.15;
+        double deducciones =  600 + 600 +ISR;
+        double sueldoNeto = (this.sueldoMensual-deducciones);
+        
+        System.out.println("            BOLETA DE PAGO - NOV         ");
+        System.out.println("DOCENTE: "+this.nombre +"            FACULTAD: "+this.facultad);
+        System.out.println("sueldo mensual:            "+this.sueldoMensual);
+        System.out.println("deducciones: ");
+        System.out.println("IHSS: 600, RAP: 600, ISR: "+ISR);
+        System.out.println("total deducciones:      "+deducciones);
+        System.out.println("SUELDO NETO:            "+sueldoNeto);
+    }
+    
 }

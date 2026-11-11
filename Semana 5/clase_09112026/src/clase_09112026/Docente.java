@@ -55,7 +55,7 @@ public class Docente {
     
     // metodo polimorfico 
     public void generarBoletaPago(){
-        System.out.println("Pendiente.....");
+        System.out.println("METODO PEOLIMORFICO DEL PADRE.....");
     }
 
     @Override

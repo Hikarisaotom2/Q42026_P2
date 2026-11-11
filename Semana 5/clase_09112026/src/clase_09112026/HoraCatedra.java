@@ -19,4 +19,15 @@ public class HoraCatedra extends Docente{
     }
     
     
+    @Override 
+    public void generarBoletaPago(){
+         double totalClases= this.sueldoClase* this.cantClases;
+        
+        System.out.println("            BOLETA DE PAGO - NOV         ");
+        System.out.println("DOCENTE: "+this.nombre +"            FACULTAD: "+this.facultad);
+        System.out.println("sueldo basepor clase :            "+this.sueldoClase);
+        System.out.println("Cantidad de clases: "+this.cantClases);
+        System.out.println("SUELDO NETO:            "+totalClases);
+    }
+    
 }

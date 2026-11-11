@@ -58,12 +58,32 @@ public class Clase_09112026 {
                     Ventajas: 
                     1) es el mas sencillo de implementar 
                     2) es comptabible y funciona con herencia 
-                    
+                    3 )Los hijos no estan obligados a crear su propia version del metodo poliformico 
+        
                     Desventajas:
+                    1) metodo inseguro 
+        
                 2)
                 3)
                 
         */
+        
+        //double sueldoBase, double bono, String nombre, String carrera, String fechaContratacion, String facultad
+        JefeCarrera reynoBocanegra = new JefeCarrera(45600.00, 5000.00,"Reynod Bocanegra", "ING Sistemas y CDA","1/1/2010","FI");
+        Investigador investigador = new Investigador(30600.00, 5,"Juan Perez", "ING Sistemas y CDA","1/1/2010","FI");
+        HoraCatedra claudiaCortes = new HoraCatedra(8000,3,"Claudia Cortes", "ING Sistemas y CDA","1/1/2010","FI");
+        Permanente permanente = new Permanente(35000.00,"Juan Gomez", "ING Sistemas y CDA","1/1/2010","FI");
+        
+        
+        System.out.println("JEFE CARRERA");
+        reynoBocanegra.generarBoletaPago();
+        System.out.println("\nINVESTIGADOR ");
+        investigador.generarBoletaPago();
+        System.out.println("\nHORA CATEDRA ");
+        claudiaCortes.generarBoletaPago();
+        System.out.println("\nPERMANENTE");
+        permanente.generarBoletaPago();
+        
     }
     
 }
