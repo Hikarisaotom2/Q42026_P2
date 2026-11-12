@@ -92,6 +92,11 @@ public class Clase_10112026_clasesAbstractas {
         claudiaCortes.generarBoletaPago();
         System.out.println("\nPERMANENTE");
         permanente.generarBoletaPago();
+        
+        
+          //NOTA CON ESTE METODO NO TENDRIAMOS QUE HACER CASTEO EN ESTE CASO 
+        Docente ejemplo = reynoBocanegra;
+        ejemplo.generarBoletaPago();
     }
     
 }
