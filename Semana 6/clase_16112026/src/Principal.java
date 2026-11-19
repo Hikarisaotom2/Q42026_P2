@@ -1,5 +1,6 @@
 
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -43,6 +44,14 @@ public class Principal extends javax.swing.JFrame {
         txtListPersonas = new javax.swing.JTextArea();
         btnEditar = new javax.swing.JButton();
         btnLimpiar = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        txtPos = new javax.swing.JTextField();
+        txtNombreEditar = new javax.swing.JTextField();
+        txtContrasenaEditar = new javax.swing.JTextField();
+        btnGuardarEdicion = new javax.swing.JButton();
+        btnBuscar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -77,6 +86,31 @@ public class Principal extends javax.swing.JFrame {
         btnEditar.setText("Editar");
 
         btnLimpiar.setText("Limpiar");
+        btnLimpiar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnLimpiarMouseClicked(evt);
+            }
+        });
+
+        jLabel4.setText("Nombre");
+
+        jLabel5.setText("Contrasena");
+
+        jLabel6.setText("Pos");
+
+        btnGuardarEdicion.setText("Guardar");
+        btnGuardarEdicion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnGuardarEdicionMouseClicked(evt);
+            }
+        });
+
+        btnBuscar.setText("Buscar");
+        btnBuscar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnBuscarMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jpOpcionesLayout = new javax.swing.GroupLayout(jpOpciones);
         jpOpciones.setLayout(jpOpcionesLayout);
@@ -85,11 +119,38 @@ public class Principal extends javax.swing.JFrame {
             .addGroup(jpOpcionesLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(60, 60, 60)
                 .addGroup(jpOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnEditar)
-                    .addComponent(btnLimpiar))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jpOpcionesLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(jpOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnEditar)
+                            .addGroup(jpOpcionesLayout.createSequentialGroup()
+                                .addComponent(btnLimpiar)
+                                .addGroup(jpOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jpOpcionesLayout.createSequentialGroup()
+                                        .addGap(37, 37, 37)
+                                        .addGroup(jpOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel5)
+                                            .addGroup(jpOpcionesLayout.createSequentialGroup()
+                                                .addGap(24, 24, 24)
+                                                .addComponent(jLabel6))))
+                                    .addGroup(jpOpcionesLayout.createSequentialGroup()
+                                        .addGap(47, 47, 47)
+                                        .addComponent(jLabel4)))))
+                        .addGap(18, 18, 18)
+                        .addGroup(jpOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jpOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(txtNombreEditar, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
+                                .addComponent(txtContrasenaEditar))
+                            .addGroup(jpOpcionesLayout.createSequentialGroup()
+                                .addComponent(txtPos, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnBuscar)))
+                        .addContainerGap(12, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpOpcionesLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnGuardarEdicion)
+                        .addGap(91, 91, 91))))
         );
         jpOpcionesLayout.setVerticalGroup(
             jpOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -98,11 +159,23 @@ public class Principal extends javax.swing.JFrame {
                 .addGroup(jpOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jpOpcionesLayout.createSequentialGroup()
-                        .addGap(9, 9, 9)
-                        .addComponent(btnEditar)
-                        .addGap(29, 29, 29)
-                        .addComponent(btnLimpiar)))
-                .addContainerGap(20, Short.MAX_VALUE))
+                        .addGroup(jpOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnEditar)
+                            .addComponent(jLabel6)
+                            .addComponent(txtPos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnBuscar))
+                        .addGap(18, 18, 18)
+                        .addGroup(jpOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnLimpiar)
+                            .addComponent(jLabel4)
+                            .addComponent(txtNombreEditar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jpOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(txtContrasenaEditar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(31, 31, 31)
+                        .addComponent(btnGuardarEdicion)))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -118,19 +191,19 @@ public class Principal extends javax.swing.JFrame {
                         .addComponent(lblEstadoAccion))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(28, 28, 28)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jpOpciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel1))
-                                .addGap(45, 45, 45)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 221, Short.MAX_VALUE)
-                                    .addComponent(txtContrasena))
-                                .addGap(27, 27, 27)
-                                .addComponent(btnRegistrar)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel1))
+                        .addGap(45, 45, 45)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 221, Short.MAX_VALUE)
+                            .addComponent(txtContrasena))
+                        .addGap(27, 27, 27)
+                        .addComponent(btnRegistrar))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addComponent(jpOpciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(130, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -160,7 +233,7 @@ public class Principal extends javax.swing.JFrame {
                         .addComponent(lblEstadoAccion)))
                 .addGap(32, 32, 32)
                 .addComponent(jpOpciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addContainerGap(52, Short.MAX_VALUE))
         );
 
         pack();
@@ -188,6 +261,44 @@ public class Principal extends javax.swing.JFrame {
 //                txtContrasena
         
     }//GEN-LAST:event_btnRegistrarMouseClicked
+
+    private void btnLimpiarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLimpiarMouseClicked
+        txtListPersonas.setText("");
+        lblEstadoAccion.setText("");
+        txtNombre.setText("");
+        txtContrasena.setText("");
+    }//GEN-LAST:event_btnLimpiarMouseClicked
+
+    private void btnBuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarMouseClicked
+        int pos = Integer.parseInt(txtPos.getText()); 
+        if(usuarios.size()<=pos || pos<0){
+            txtNombreEditar.setText("No hay un valor en esa pos ");
+            txtContrasenaEditar.setText("No hay un valor en esa pos ");
+        }else{
+            Usuario usuarioSeleccionado = usuarios.get(pos);
+             txtNombreEditar.setText(usuarioSeleccionado.getNombre());
+            txtContrasenaEditar.setText(usuarioSeleccionado.getContrasena());
+        }
+    }//GEN-LAST:event_btnBuscarMouseClicked
+
+    private void btnGuardarEdicionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGuardarEdicionMouseClicked
+      int pos = Integer.parseInt(txtPos.getText()); 
+        if(usuarios.size()<=pos || pos<0){
+            System.out.println("No se puede modificar ");
+        }else{
+            Usuario usuarioSeleccionado = usuarios.get(pos);
+             String nuevoNombre = txtNombreEditar.getText();
+             String nuevacontrasena = txtContrasenaEditar.getText();
+             usuarioSeleccionado.setContrasena(nuevacontrasena);
+             usuarioSeleccionado.setNombre(nuevoNombre);
+             txtListPersonas.setText("");
+             for (int i = 0; i < usuarios.size(); i++) {
+                txtListPersonas.append(usuarios.get(i).getNombre());
+            }
+             JOptionPane.showMessageDialog(this,"Usuario atualizado");
+             // Pista: ocultar los elementos de editar 
+        }
+    }//GEN-LAST:event_btnGuardarEdicionMouseClicked
 
     /**
      * @param args the command line arguments
@@ -225,17 +336,25 @@ public class Principal extends javax.swing.JFrame {
     }
      ArrayList<Usuario> usuarios  = new  ArrayList<Usuario>();
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnEditar;
+    private javax.swing.JButton btnGuardarEdicion;
     private javax.swing.JButton btnLimpiar;
     private javax.swing.JButton btnRegistrar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel jpOpciones;
     private javax.swing.JLabel lblEstadoAccion;
     private javax.swing.JTextField txtContrasena;
+    private javax.swing.JTextField txtContrasenaEditar;
     private javax.swing.JTextArea txtListPersonas;
     private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtNombreEditar;
+    private javax.swing.JTextField txtPos;
     // End of variables declaration//GEN-END:variables
 }
