@@ -44,9 +44,9 @@ public class Principal extends javax.swing.JFrame {
         txtListPersonas = new javax.swing.JTextArea();
         btnEditar = new javax.swing.JButton();
         btnLimpiar = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        lblNombreEditar = new javax.swing.JLabel();
+        lblContrasenaEditar = new javax.swing.JLabel();
+        lblPos = new javax.swing.JLabel();
         txtPos = new javax.swing.JTextField();
         txtNombreEditar = new javax.swing.JTextField();
         txtContrasenaEditar = new javax.swing.JTextField();
@@ -84,6 +84,11 @@ public class Principal extends javax.swing.JFrame {
         jScrollPane1.setViewportView(txtListPersonas);
 
         btnEditar.setText("Editar");
+        btnEditar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnEditarMouseClicked(evt);
+            }
+        });
 
         btnLimpiar.setText("Limpiar");
         btnLimpiar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -92,11 +97,11 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setText("Nombre");
+        lblNombreEditar.setText("Nombre");
 
-        jLabel5.setText("Contrasena");
+        lblContrasenaEditar.setText("Contrasena");
 
-        jLabel6.setText("Pos");
+        lblPos.setText("Pos");
 
         btnGuardarEdicion.setText("Guardar");
         btnGuardarEdicion.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -130,13 +135,13 @@ public class Principal extends javax.swing.JFrame {
                                     .addGroup(jpOpcionesLayout.createSequentialGroup()
                                         .addGap(37, 37, 37)
                                         .addGroup(jpOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel5)
+                                            .addComponent(lblContrasenaEditar)
                                             .addGroup(jpOpcionesLayout.createSequentialGroup()
                                                 .addGap(24, 24, 24)
-                                                .addComponent(jLabel6))))
+                                                .addComponent(lblPos))))
                                     .addGroup(jpOpcionesLayout.createSequentialGroup()
                                         .addGap(47, 47, 47)
-                                        .addComponent(jLabel4)))))
+                                        .addComponent(lblNombreEditar)))))
                         .addGap(18, 18, 18)
                         .addGroup(jpOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jpOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -161,17 +166,17 @@ public class Principal extends javax.swing.JFrame {
                     .addGroup(jpOpcionesLayout.createSequentialGroup()
                         .addGroup(jpOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnEditar)
-                            .addComponent(jLabel6)
+                            .addComponent(lblPos)
                             .addComponent(txtPos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnBuscar))
                         .addGap(18, 18, 18)
                         .addGroup(jpOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnLimpiar)
-                            .addComponent(jLabel4)
+                            .addComponent(lblNombreEditar)
                             .addComponent(txtNombreEditar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jpOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
+                            .addComponent(lblContrasenaEditar)
                             .addComponent(txtContrasenaEditar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(31, 31, 31)
                         .addComponent(btnGuardarEdicion)))
@@ -252,7 +257,18 @@ public class Principal extends javax.swing.JFrame {
              usuarios.add(nuevoUsuario);
 //             txtListPersonas.setText(nombre);
              txtListPersonas.append("\n"+nombre);
+             //mostrar panel 
              jpOpciones.setVisible(true);
+             // ocultando elementos hijos del panel manualmente 
+//             lblPos.setVisible(false);
+//             lblNombreEditar.setVisible(false);
+//             lblContrasenaEditar.setVisible(false);
+//             txtPos.setVisible(false);
+//             txtNombreEditar.setVisible(false);
+//             txtContrasenaEditar.setVisible(false);
+//             btnBuscar.setVisible(false);
+//             btnGuardarEdicion.setVisible(false);
+               mostarOcultarEditar(false);
         }else{
             System.out.println("Contrasena poco segura :(");
             lblEstadoAccion.setText("Contrasena poco segura :(");
@@ -296,10 +312,42 @@ public class Principal extends javax.swing.JFrame {
                 txtListPersonas.append(usuarios.get(i).getNombre());
             }
              JOptionPane.showMessageDialog(this,"Usuario atualizado");
+             
              // Pista: ocultar los elementos de editar 
+//             lblPos.setVisible(false);
+//             lblNombreEditar.setVisible(false);
+//             lblContrasenaEditar.setVisible(false);
+//             txtPos.setVisible(false);
+//             txtNombreEditar.setVisible(false);
+//             txtContrasenaEditar.setVisible(false);
+//             btnBuscar.setVisible(false);
+//             btnGuardarEdicion.setVisible(false);
+               mostarOcultarEditar(false);
         }
     }//GEN-LAST:event_btnGuardarEdicionMouseClicked
 
+    private void btnEditarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEditarMouseClicked
+//              lblPos.setVisible(true);
+//             lblNombreEditar.setVisible(true);
+//             lblContrasenaEditar.setVisible(true);
+//             txtPos.setVisible(true);
+//             txtNombreEditar.setVisible(true);
+//             txtContrasenaEditar.setVisible(true);
+//             btnBuscar.setVisible(true);
+//             btnGuardarEdicion.setVisible(true);
+                mostarOcultarEditar(true);
+    }//GEN-LAST:event_btnEditarMouseClicked
+
+     public void mostarOcultarEditar(boolean mostrar){
+          lblPos.setVisible(mostrar);
+             lblNombreEditar.setVisible(mostrar);
+             lblContrasenaEditar.setVisible(mostrar);
+             txtPos.setVisible(mostrar);
+             txtNombreEditar.setVisible(mostrar);
+             txtContrasenaEditar.setVisible(mostrar);
+             btnBuscar.setVisible(mostrar);
+             btnGuardarEdicion.setVisible(mostrar);
+     }
     /**
      * @param args the command line arguments
      */
@@ -344,12 +392,12 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel jpOpciones;
+    private javax.swing.JLabel lblContrasenaEditar;
     private javax.swing.JLabel lblEstadoAccion;
+    private javax.swing.JLabel lblNombreEditar;
+    private javax.swing.JLabel lblPos;
     private javax.swing.JTextField txtContrasena;
     private javax.swing.JTextField txtContrasenaEditar;
     private javax.swing.JTextArea txtListPersonas;
